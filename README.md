@@ -2,6 +2,8 @@
 
 ## Dataset
 
+Ao baixar coloque os arquivos dentro da pasta "backend/data/data_partidas/"
+
 https://www.kaggle.com/datasets/californianbill/patch-25-14-lol-league-of-legends-ranked-games?hl=pt-BR
 
 ## Backend
