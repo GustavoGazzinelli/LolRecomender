@@ -407,6 +407,82 @@ code {
   margin: 0;
 }
 
+.app__stat--perfil .app__stat-value-wrap {
+  position: relative;
+  margin: 0 0 0.35rem;
+  padding-bottom: 7px;
+}
+
+.app__stat--perfil .app__stat-value--with-bar {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.app__stat-progress-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.app__stat-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--accent-border),
+    var(--accent)
+  );
+  opacity: 0.8;
+  transition: width 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app__stat-progress-fill {
+    transition: none;
+  }
+}
+
+.app__stat--dominant-magic {
+  transition:
+    border-color 0.75s ease,
+    box-shadow 0.75s ease;
+}
+
+.app__stat--dominant-magic:not(.app__stat--dominant-magic--ready) {
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.app__stat--dominant-magic.app__stat--dominant-magic--ready {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 40%, var(--border)),
+    0 0 15px color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+.app__stat--dominant-magic .app__stat-progress-fill {
+  opacity: 0.95;
+  transition:
+    width 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app__stat--dominant-magic {
+    transition: none;
+  }
+
+  .app__stat--dominant-magic .app__stat-progress-fill {
+    transition: none;
+  }
+}
+
 .app__champ-grid {
   display: grid;
   gap: 0.75rem;
@@ -494,4 +570,80 @@ code {
 .app__champ-meta strong {
   color: var(--text-h);
   font-weight: 600;
+}
+
+.app__champ-meta--tags {
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.app__champ-meta--tags > strong {
+  font-size: 0.82rem;
+}
+
+.app__champ-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app__champ-tag {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text-h);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.app__champ-tag--empty {
+  color: var(--text);
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.app__footer {
+  width: 100%;
+  padding: 1.25rem clamp(1rem, 4vw, 1.5rem) 1.5rem;
+  border-top: 1px solid var(--border);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.app__footer-inner {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.app__footer-line {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-h);
+  margin: 0 0 0.5rem;
+}
+
+.app__footer-brand {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.app__footer-dot {
+  margin: 0 0.35rem;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.app__footer-legal {
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 0;
 }
