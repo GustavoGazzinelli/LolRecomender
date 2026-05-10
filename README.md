@@ -27,4 +27,10 @@ npm ci
 npm run dev
 ```
 
-Cabou-se
+## .env
+
+Lembre-se de criar um .env com RIOT_API_KEY você pode conseguir essa chave acessando sua conta mesmo da riot nesse site
+
+https://developer.riotgames.com/
+
+## Cabou-se
