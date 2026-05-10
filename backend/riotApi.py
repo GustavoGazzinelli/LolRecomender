@@ -1,6 +1,10 @@
 import requests
 import os
 from dotenv import load_dotenv
+import urllib3
+
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 load_dotenv()
 
@@ -10,19 +14,19 @@ HEADERS = {"X-Riot-Token": API_KEY}
 def get_puuid(nome, tag):
     url = f"https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{nome}/{tag}"
 
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url, headers=HEADERS, verify=False)
     return response.json()["puuid"]
 
 def get_match_ids(puuid, count=50):
     url = f"https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count={count}"
 
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url, headers=HEADERS, verify=False)
     return response.json()
 
 def get_match_details(match_id):
     url = f"https://americas.api.riotgames.com/lol/match/v5/matches/{match_id}"
 
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url, headers=HEADERS, verify=False)
     return response.json()
 
 def extract_player_data(match_data, puuid):
