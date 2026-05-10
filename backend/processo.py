@@ -36,10 +36,8 @@ def processar():
             F.count("campeao").alias("popularidade")
         ).filter(F.col("popularidade") > 100)
 
-    # 4. Salvamos em Parquet para o 'recomenda.py' usar
     ranking.write.mode("overwrite").parquet("data/meta_high_elo.parquet")
     
-    print("Sucesso! O arquivo 'meta_high_elo.parquet' foi gerado.")
 
 if __name__ == "__main__":
     processar()
