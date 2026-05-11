@@ -18,7 +18,7 @@ def processar():
 
     df_players = df.select(F.explode("info.participants").alias("p"))
 
-    # 2. Pegamos os dados exatos que vimos no seu log
+    # 2. Pegamos os dados exatos
     df_limpo = df_players.select(
         F.col("p.championName").alias("campeao"),
         F.col("p.win").alias("venceu"),
